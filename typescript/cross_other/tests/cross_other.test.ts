@@ -15,8 +15,7 @@ describe('Cross value in other member in input array', () => {
       const input: number[] = [5]
       const expected: number[] = [1]
 
-      const actual = crossOther(input)
-      expect(actual).toEqual(expected)
+      expect(crossOther(input)).toEqual(expected)
     })
 
   it('two member array will Return swap member',
@@ -24,7 +23,31 @@ describe('Cross value in other member in input array', () => {
       const input: number[] = [5, 1]
       const expected: number[] = [1, 5]
 
-      const actual = crossOther(input)
-      expect(actual).toEqual(expected)
+      expect(crossOther(input)).toEqual(expected)
     })
+
+  it('three same value member array will return three of projection member',
+    () => {
+      const input: number[] = [2, 2, 2]
+      const expected: number[] = [4, 4, 4]
+
+      expect(crossOther(input)).toEqual(expected)
+    })
+
+  it('array of [1, 2, 3] will return three of [6, 3, 2]',
+    () => {
+      const input: number[] = [1, 2, 3]
+      const expected: number[] = [6, 3, 2]
+
+      expect(crossOther(input)).toEqual(expected)
+    })
+
+  it('array of [1, 2, 3, 4, 5] will return three of [120, 60, 40, 30, 24]',
+    () => {
+      const input: number[] = [1, 2, 3, 4, 5]
+      const expected: number[] = [120, 60, 40, 30, 24]
+
+      expect(crossOther(input)).toEqual(expected)
+    })
+
 })
