@@ -5,11 +5,7 @@ export const crossOther = (numbers: number[]): number[] => {
   const newNumbers = numbers.map((element, _, array) => {
     const someElementIsZero = array.some((element) => element === 0)
     if (someElementIsZero) {
-      if (element === 0) {
-        return allCross
-      } else {
-        return 0
-      }
+      return (element === 0) ? allCross : 0
     } else {
       return allCross / element
     }
