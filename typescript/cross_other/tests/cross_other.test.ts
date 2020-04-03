@@ -50,4 +50,43 @@ describe('Cross value in other member in input array', () => {
       expect(crossOther(input)).toEqual(expected)
     })
 
+  it('support to Zero array of [5, 0] will return three of [0, 5]',
+    () => {
+      const input: number[] = [5, 0]
+      const expected: number[] = [0, 5]
+
+      expect(crossOther(input)).toEqual(expected)
+    })
+
+  it('support to Zero array of [5, 0, 2, 3] will return three of [0, 30, 0, 0]',
+    () => {
+      const input: number[] = [5, 0, 2, 3]
+      const expected: number[] = [0, 30, 0, 0]
+
+      expect(crossOther(input)).toEqual(expected)
+    })
+
+  it('support to Negative array of [-5, 0] will return three of [0, -5]',
+    () => {
+      const input: number[] = [-5, 0]
+      const expected: number[] = [0, -5]
+
+      expect(crossOther(input)).toEqual(expected)
+    })
+
+  it('support to Negative array of [-5, 2, 3] will return three of [6, -15, -10]',
+    () => {
+      const input: number[] = [-5, 2, 3]
+      const expected: number[] = [6, -15, -10]
+
+      expect(crossOther(input)).toEqual(expected)
+    })
+
+  it('support to double Negative array of [-5, 2, 3, -4] will return three of [-24, 60, 40, -30]',
+    () => {
+      const input: number[] = [-5, 2, 3, -4]
+      const expected: number[] = [-24, 60, 40, -30]
+
+      expect(crossOther(input)).toEqual(expected)
+    })
 })
