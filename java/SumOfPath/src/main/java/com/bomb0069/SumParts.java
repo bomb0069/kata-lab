@@ -5,12 +5,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SumParts {
-    public static int[] sumParts(int[] inputArray) {
+    public static int[] recursiveSumParts(int[] inputArray) {
         Integer[] tempArray = sumOfParts(inputArray).parts.toArray(new Integer[0]);
         int[] returnArray = new int[inputArray.length + 1];
 
         for (int i = 0; i < tempArray.length; i++ ) {
             returnArray[i] = tempArray[i];
+        }
+
+        return returnArray;
+    }
+
+    public static int[] sumParts(int[] inputArray) {
+        int[] returnArray = new int[inputArray.length + 1];
+        returnArray[inputArray.length] = 0;
+        int sumValue = 0;
+        for (int i = inputArray.length - 1 ; i >= 0 ; i--) {
+            sumValue += inputArray[i];
+            returnArray[i] = sumValue;
         }
 
         return returnArray;
