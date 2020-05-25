@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd-deployment
+  labels:
+    app: static-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: static-web
+  template:
+    metadata:
+      labels:
+        app: static-web
+        version: "1"
+    spec:
+      containers:
+      - name: httpd
+        resources: 
+          limits:
+            memory: "50Mi"
+            cpu: "50m"
+        image: httpd:2-alpine
+        ports:
+        - containerPort: 80
+
